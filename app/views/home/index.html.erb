@@ -1,0 +1,69 @@
+<div class="container py-5">
+  <!-- Welcome Section -->
+  <section class="welcome-section text-center bg-light p-5 rounded shadow-sm mb-5">
+    <h1 class="display-4 fw-bold text-primary">Welcome to ShopEasy</h1>
+    <p class="lead text-secondary">
+      Find the best products at the best prices. We offer a wide range of items that cater to all your needs!
+    </p>
+    <a href="/products" class="btn btn-lg btn-success mt-3">Shop Now</a>
+  </section>
+
+  <!-- Trending Products -->
+    <section class="trending-products mb-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Trending Products</h2>
+        <div class="row">
+          <% @products.each do |product| %>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                <% if product.image.attached? %>
+                  <%= image_tag url_for(product.image), class: "card-img-top", alt: product.name %>
+                <% end %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= product.name %></h5>
+                  <p class="card-text"><%= product.description %></p>
+                  <p class="price fw-bold">$<%= product.price %></p>
+                  <a class="btn btn-outline-primary w-100 mb-2">View Details</a>
+                  <a class="btn btn-primary w-100">Add to Cart</a>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- Extra Services / Categories -->
+  <section class="extra-categories mb-5">
+    <h2 class="text-center mb-4">Also on ShopEasy</h2>
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 bg-light p-4 shadow-sm h-100">
+          <i class="bi bi-house-door-fill fs-1 text-primary mb-3"></i>
+          <h5>Apartments for Sale</h5>
+          <p class="text-muted">Find your dream home from a wide range of listings.</p>
+          <a href="#" class="btn btn-outline-secondary">View Listings</a>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 bg-light p-4 shadow-sm h-100">
+          <i class="bi bi-car-front-fill fs-1 text-success mb-3"></i>
+          <h5>Pre-Owned Cars</h5>
+          <p class="text-muted">Quality cars inspected and ready to drive away today.</p>
+          <a href="#" class="btn btn-outline-secondary">Browse Cars</a>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 bg-light p-4 shadow-sm h-100">
+          <i class="bi bi-megaphone-fill fs-1 text-danger mb-3"></i>
+          <h5>Announcements</h5>
+          <p class="text-muted">Stay updated with the latest offers and company news.</p>
+          <a href="#" class="btn btn-outline-secondary">See More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
